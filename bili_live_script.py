@@ -39,9 +39,9 @@ def main():
     
     while True:
         found_start_file = False
+        start_file = "23.mp4"  # 指定起始文件名 这里可以填你想从第几集播放的上一集名称，比如你想从第二集播放，这里就填第一集的名字， 然后把 found_start_file 的值改成 false。
         for file in nameList:
             filename = os.path.basename(file)
-            start_file = "23.mp4"  # 指定起始文件名 这里可以填你想从第几集播放的上一集名称，比如你想从第二集播放，这里就填第一集的名字， 然后把 found_start_file 的值改成 false。
             if not found_start_file:
                 if filename == start_file:
                     found_start_file = True
