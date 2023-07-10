@@ -58,7 +58,7 @@ def main():
                 # 总时长减去开头和结尾就是截取后的视频时长
                 newtime = duration - beg - end
                 logging.info("当前播放的是：" + filename)
-                command = 'ffmpeg -re -ss "' + str(beg) + '" -to "' + str(newtime) + '" -i "' + file + '" -vcodec copy -acodec copy   -b:a 128k -r ' + fps + ' -f flv "rtmp://live-push.bilivideo.com/live-bvc/' + rtmp + '"'
+                command = 'ffmpeg -re -ss "' + str(beg) + '" -to "' + str(newtime) + '" -i "' + file + '" -vcodec libx264 -acodec aac -ar 44100 -strict -2  -r ' + fps + ' -f flv "rtmp://live-push.bilivideo.com/live-bvc/' + rtmp + '"'
                 subprocess.run(command, shell=True)
             else:
                 print('无法提取视频时长信息')
