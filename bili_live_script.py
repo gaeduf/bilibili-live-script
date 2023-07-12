@@ -8,7 +8,7 @@ import re
 dir = "/sda/res"  # 你的视频文件所在目录
 rtmp = "?streamname=live_11001546_4006607&key=xxxxxxxxxxxxxxxxx&schedule=rtmp&pflag=1"  # 填你的串流密钥
 fps = "25"  # 默认即可
-found_start_file = False
+found_start_file = True
 start_file = "23.mp4"  # 指定起始文件名 这里可以填你想从第几集播放的上一集名称，比如你想从第二集播放，这里就填第一集的名字， 然后把 found_start_file 的值改成 false。
 
 # 下面方法是查询你的视频目录下的所有视频文件
@@ -32,6 +32,8 @@ def getfilename(file):
 
 
 def main():
+    print("programmer start !!!")
+    global found_start_file  # 将变量声明为全局变量
     logging.basicConfig(filename='playback.log', level=logging.INFO, format='%(asctime)s - %(message)s')
     nameList = listDir(dir)
     nameList.sort()
@@ -47,4 +49,5 @@ def main():
             subprocess.run(command, shell=True)
           
 
-main()
+if __name__ == '__main__':
+    main()
