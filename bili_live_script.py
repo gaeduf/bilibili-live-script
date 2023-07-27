@@ -45,7 +45,7 @@ def main():
                     found_start_file = True
                 continue
             logging.info("当前播放的是：" + filename)
-            command = 'ffmpeg -re -i "' + file + '" -vcodec libx264 -acodec aac -ar 44100 -strict -2  -r ' + fps + ' -f flv "rtmp://live-push.bilivideo.com/live-bvc/' + rtmp + '"'
+            command = 'ffmpeg -re -i "' + file + '" -vcodec copy -acodec aac -ar 44100 -strict -2  -r ' + fps + ' -f flv "rtmp://live-push.bilivideo.com/live-bvc/' + rtmp + '"'
             subprocess.run(command, shell=True)
           
 
