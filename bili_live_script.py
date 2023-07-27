@@ -63,4 +63,5 @@ def main():
                 print('无法提取视频时长信息')
             
 
-main()
+if __name__ == '__main__':
+    main()
